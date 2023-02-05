@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'users.apps.UsersConfig',
     'foods.apps.FoodsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -116,7 +118,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL= 'static/'
+
+#Setting the redirection after a user has logged in.
+LOGIN_REDIRECT_URL = 'foods:index'
+
+#This is to configure redirect with user tries to access 'profile' when not logged in
+LOGIN_URL= 'login'
+
+#This is to configure where profile images are save
+MEDIA_ROOT= os.path.join(BASE_DIR, 'pictures')
+#Define the URL where Media of app lies
+MEDIA_URL= '/pictures/'
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

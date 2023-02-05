@@ -1,0 +1,13 @@
+Ridepoint DB Credendtials
+
+db = p
+user = rp_db_user1
+pw = Gat#105ridepoint
+
+
+
+Alphaproject superuser django
+
+francissu
+francis.smcimsi@yahoo.com
+Gat#105strike
