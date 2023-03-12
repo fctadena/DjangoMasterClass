@@ -7,6 +7,8 @@ from django.shortcuts import redirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
@@ -40,7 +42,8 @@ class IndexClassView(ListView):
 class FoodDetail(DetailView):
     model = Item
     template_name = 'foods/detail.html'
-    
+
+
     
 
 def create_item(request):
@@ -54,6 +57,7 @@ def create_item(request):
 
 
 # This is a class based view for create_item
+@login_required
 class CreateItem(CreateView):
     model = Item;
     fields = ['item_name', 'item_desc', 'item_price', 'item_image']
